@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringCalculatorTest {
     StringCalculator sc;
@@ -43,5 +44,14 @@ public class StringCalculatorTest {
     public void 문자열계산테스트() {
         String[] values = new String[] {"2", "*", "3", "/", "2", "-", "5", "+", "4"};
         assertThat(sc.calculate(values)).isEqualTo(2);
+    }
+
+    @DisplayName("유효한 연산자 IllegalArgumentException 테스트")
+    @Test
+    public void 유효연산자테스트() {
+        String[] values = {"2", "%", "3"};
+        assertThatThrownBy(() -> sc.calculate(values))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력한 연산자를 확인하세요 : %");
     }
 }

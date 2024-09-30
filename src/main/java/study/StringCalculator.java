@@ -5,14 +5,18 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class StringCalculator {
-    String[] values;
-    public void input() {
+    public int input() {
         Scanner scanner = new Scanner(System.in);
-        String value = scanner.nextLine();
+        String userInput = scanner.nextLine();
         scanner.close();
-        this.values = value.split(" "); // 사용자 입력값 하나씩 분리해서 배열;
+        String[] arr = stringToArray(userInput);
+        return calculate(arr);
     }
-    // 계산
+    //문자열 배열로 변환
+    public String[] stringToArray(String str) {
+        return str.split("");
+    }
+    // 계산함수
     public int calculate(String[] values) {
         int result = parseInt(values[0]); // 첫번째 숫자로 초기값 설정
         for(int i = 1; i < values.length; i+=2) {
