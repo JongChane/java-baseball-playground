@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class StringCalculator {
-    public int input() {
+    public int execute() {
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
         scanner.close();
