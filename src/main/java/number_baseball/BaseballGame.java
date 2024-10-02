@@ -8,7 +8,7 @@ public class BaseballGame {
     //세자리 난수 생성기
     public int generateThreeDigitNumber(){
         List<Integer> numbers = new ArrayList<>();
-        for(int i = 0; i <= 9; i++) {
+        for(int i = 1; i <= 9; i++) {
             numbers.add(i);
         }
         Collections.shuffle(numbers);
